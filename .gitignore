@@ -1,0 +1,5 @@
+assume-role
+client-grants
+custom-token-identity
+ldap
+web-identity

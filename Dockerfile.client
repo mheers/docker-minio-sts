@@ -1,0 +1,9 @@
+FROM bitnami/minio-client:2024.2.9-debian-11-r0
+
+COPY --from=mheers/minio-sts /usr/local/bin/assume-role /usr/local/bin/assume-role
+COPY --from=mheers/minio-sts /usr/local/bin/client-grants /usr/local/bin/client-grants
+COPY --from=mheers/minio-sts /usr/local/bin/assume-role /usr/local/bin/assume-role
+COPY --from=mheers/minio-sts /usr/local/bin/client-grants /usr/local/bin/client-grants
+COPY --from=mheers/minio-sts /usr/local/bin/custom-token-identity /usr/local/bin/custom-token-identity
+COPY --from=mheers/minio-sts /usr/local/bin/ldap /usr/local/bin/ldap
+COPY --from=mheers/minio-sts /usr/local/bin/web-identity /usr/local/bin/web-identity
