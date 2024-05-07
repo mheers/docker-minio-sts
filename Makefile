@@ -1,11 +1,16 @@
-all: build build-client
+all: build-sts build-client
 
-build:
+include .env
+export
+
+build-sts:
 	docker build -t mheers/minio-sts .
 
 build-client:
-	docker build -t mheers/minio-client  -f Dockerfile.client .
+	docker build --build-arg MINIO_CLIENT_VERSION=$(MINIO_CLIENT_VERSION) -t mheers/minio-client:$(MINIO_CLIENT_VERSION) -f Dockerfile.client .
 
-push:
+push-sts:
 	docker push mheers/minio-sts
-	docker push mheers/minio-client
+
+push-client:
+	docker push mheers/minio-client:$(MINIO_CLIENT_VERSION)
