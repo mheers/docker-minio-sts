@@ -1,4 +1,4 @@
-ARG MINIO_CLIENT_VERSION
+ARG MINIO_CLIENT_VERSION=2024.7.31-debian-12-r0
 FROM bitnami/minio-client:${MINIO_CLIENT_VERSION}
 
 COPY --from=mheers/minio-sts /usr/local/bin/assume-role /usr/local/bin/assume-role
